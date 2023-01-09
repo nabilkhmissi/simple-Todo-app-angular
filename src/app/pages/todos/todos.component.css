@@ -1,0 +1,45 @@
+body {
+    background-color: #f5f5f5;
+  }
+
+.adminActions {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    cursor : pointer;
+    z-index: 999;
+}
+
+.adminButton {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: block;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.adminButton a {
+    cursor : pointer;
+}
+.adminButton i {
+    font-size: 22px;
+}
+
+.adminActions a i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-container{
+    max-width: 80%;
+    margin: auto;
+}
+
+.card-link{
+    cursor: pointer;
+}

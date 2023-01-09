@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="form mt-3" style="width: 60%;margin: auto;">
+        <h2>Update profile</h2>
+        <div class="alert alert-danger mb-1" *ngFor="let error of errors">
+            {{error}}
+        </div>
+        <div class="alert alert-success mb-1" *ngIf="message">
+            {{message}}
+        </div>
+        <form>
+            <div class="form-group mb-2">
+                <label for="username">First name</label>
+                <input class="form-control" type="text" [(ngModel)]="user.firstName" name="firstName" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label">Last name</label>
+                <input class="form-control" type="text" [(ngModel)]="user.lastName" name="lastName" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label">Username</label>
+                <input class="form-control" type="text" [(ngModel)]="user.userName" name="userName" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label">Email</label>
+                <input class="form-control" type="email" [(ngModel)]="user.email" name="email" />
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" type="password" [(ngModel)]="user.password" name="password" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success me-1" (click)="update()">Save</button>
+                
+                <a class="btn btn-dark" routerLink="/home">Cancel</a>
+                <button class="btn btn-danger ms-2" (click)="deleteAccount()"><i class="fas fa-trash me-2"></i>Delete</button>
+            </div>
+        </form>
+    </div>
+
+</div>

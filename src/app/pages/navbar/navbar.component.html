@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgba(92, 3, 119, 0.97);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Todo App</a>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item me-3">
+                <a class="nav-link" routerLink="profile/{{activeUser.id}}" routerLinkActive="active">
+                    <i class="fas fa-user me-2"></i>{{activeUser.firstName | titlecase }}</a>
+            </li>
+            <li class="nav-item me-3">
+                <a class="nav-link" routerLink="todos" routerLinkActive="active">
+                    <i class="fas fa-bars me-1"></i> All todos
+                </a>
+            </li>
+            <li class="nav-item me-3">
+                <a class="nav-link" routerLink="add-category" routerLinkActive="active">
+                    <i class="fas fa-plus"></i> category
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-light" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

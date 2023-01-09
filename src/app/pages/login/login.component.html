@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card p-3 mt-4">
+        <div class="form">
+        <h2>Login</h2>
+        <div class="alert alert-danger mb-1" *ngFor="let error of errors">
+            {{error}}
+        </div>
+        <div class="alert alert-success mb-1" *ngIf="message">
+            {{message}}
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-group mb-2">
+                <label for="username">Email</label>
+                <input class="form-control" type="text" formControlName="email" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" formControlName="password" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-dark me-2" type="submit">Login</button>
+                <a class="btn btn-dark" routerLink="/signup">Register</a>
+            </div>
+        </form>
+    </div>
+    </div>
+    
+
+</div>

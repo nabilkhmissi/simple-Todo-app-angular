@@ -1,0 +1,67 @@
+<div style="background-color: rgb(240, 240, 240);" class="py-4">
+
+    <div class="main-container">
+        <div>
+            <div class="d-flex flex-row justify-content-between mb-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        My categories :
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-select" [(ngModel)]="selectedCategory" (change)="getTodosByCat()">
+                            <option *ngFor="let c of categories" value="{{ c.id }}">{{ c.title }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-end">
+
+                    <div class="col-md-8">
+                         <input type="text" class="form-control" placeholder="search ..." [(ngModel)]="searchKey" (keyup)="doSearch()">
+                    </div>
+                   
+                    <div class="col-md-5">
+                        <button class="btn btn-dark ms-2" (click)="getFavorite()">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="btn btn-dark ms-2" (click)="addTodo()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+
+                <div *ngIf="loading" class="d-flex flex-row justify-content-center">
+                    <div class="spinner-border m-auto" role="status">
+                        <span class="visually-hidden" style="height: 200px;width:200px;">Loading...</span>
+                    </div>
+                </div>
+                <div class="card mb-3" *ngFor="let todo of todos" style="background-color: white;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ todo?.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ todo.creationDate | date:'mediumDate' }}</h6>
+                        <hr>
+                        <p class="card-text">{{ todo.description }}</p>
+                        <div class="row">
+                            <div class="col">
+                                <a (click)="doLikeTodo(todo)" class="card-link"> <i style="font-size: x-large;"
+                                        class="fas fa-regular fa-heart"
+                                        [ngStyle]="{'color': todo.favorite ? 'rgba(92, 3, 119, 0.97)' : '#d2d2d2'}"></i></a>
+                                <a (click)="done(todo)" class="card-link"><i style="font-size: x-large;"
+                                        class="fas fa-regular fa-check"
+                                        [ngStyle]="{'color': todo.done ? 'rgba(92, 3, 119, 0.97)' : '#dbdbdb'}"></i></a>
+                            </div>
+                            <div class="col d-flex flex-row justify-content-end">
+                                <a (click)="deleteTodo(todo.id)" class="card-link"><i class="fas fa-trash"
+                                        style="font-size: large;color: #dbdbdb;"></i></a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

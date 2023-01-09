@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="form py-4" style="width: 80%;margin: auto;">
+        <h2>Add new Todo</h2>
+        <div class="alert alert-danger mb-1" *ngFor="let error of errors">
+            {{error}}
+        </div>
+        <div class="alert alert-success mb-1" *ngIf="message">
+            {{message}}
+        </div>
+        <form>
+            <div class="form-group mb-2">
+                <label class="form-label">Title</label>
+                <input class="form-control" type="text" [(ngModel)]="todo.title" name="todo.title" />
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" type="text" [(ngModel)]="todo.description" name="todo.description"></textarea>
+            </div>
+            <div class="form-group mb-2">
+                <label class="form-label">category</label>
+                <select class="form-select" type="text" [(ngModel)]="todo.category" name="todo.description">
+                    <option *ngFor="let c of categoriesByUser" [ngValue]="c">{{ c.title }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-dark me-2" (click)="save()"><i class="fas fa-save me-2"></i>Save</button>
+                <a class="btn btn-dark" routerLink="/home">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+</div>
